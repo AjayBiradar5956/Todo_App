@@ -1,0 +1,91 @@
+body {
+    font-family: sans-serif;
+    color: gray;
+    margin: 0;
+}
+
+.borderstyle {
+    border: none;
+}
+
+h1 {
+    margin-top: 15px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+}
+
+.header {
+    color: grey;
+    font-weight: 700;
+}
+
+form {
+    margin-left: 20px
+}
+
+#category {
+    border-right: 2px solid #e9ecef;
+    width: 50%;
+}
+
+#list-item {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+
+#listdate {
+    flex-grow: 1;
+}
+
+.categorybox {
+    height: 40px;
+    width: 110px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+    background-color: blue;
+}
+
+
+
+select {
+    width: 350px;
+    font-size: 1.3rem;
+    color: grey;
+}
+
+.btnss {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+button {
+    width: 200px;
+    height: 80px;
+    margin-right: 10px;
+    font-size: 1.3rem;
+    color: white;
+}
+
+span {
+    display: inline-block;
+    text-align: center;
+}
+
+.add {
+    background-color: black;
+}
+
+.delete {
+    background-color: red;
+}

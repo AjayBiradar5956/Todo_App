@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://kit.fontawesome.com/014024ef11.js" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+
+<body>
+    <h1>TODO App</h1>
+    <hr>
+    <form action="/create-list" method="post">
+        <div id="description">
+            <label class=" header" for="desc">DESCRIPTION</label>
+            <textarea name="description" id="desc" class="text" rows="2" required placeholder="What do you need to do?"
+                style="resize: none;width: 95%;border: none;"></textarea>
+        </div>
+        <hr>
+        <div id="container">
+            <div id="category">
+                <label for="categoryoptions" class=" header">CATEGORY</label><br>
+                <select name="category" id="categoryoptions" class="borderstyle">
+                    <option value='' selected>choose a category</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="School">School</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            <div style="margin-left: 20px;">
+                <label for="due" class=" header">DUE DATE</label><br>
+                <p><input type="text" class="borderstyle" name="date" id="datepicker" placeholder="mm/dd/yyyy">
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div class="mt-5 btnss">
+            <div>
+                <button type="submit" class="add"><i class="fa-solid fa-plus task me-3"></i>
+                    <span>ADD TASK</span>
+                </button>
+            </div>
+    </form>
+    <div>
+        <form action="/delete-list" method="get">
+            <button type="submit" class="delete"><i class="fa-solid fa-trash task me-2"></i>
+                <span>DELETE TASK</span>
+            </button>
+        </form>
+    </div>
+    </div>
+    <hr>
+
+    <div id="listcontainer">
+        <ul>
+            <% for(let i of todo_list) { %>
+                <li id="list-item">
+                    <div><input type="checkbox" class="checkboxs" value="<%=i.description%>"></div>
+                    <div id="listdate">
+                        <ul style="list-style: none;">
+                            <li><span>
+                                    <%= i.description %>
+                                </span></li>
+                            <li><span>
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                    <span style="margin-left: 10px;">
+                                        <% if (i.date) { %>
+                                            <p class="date">
+                                                <%= i.date %>
+                                            </p>
+                                            <%} else { %>
+                                                <p> NO DEADLINE </p>
+                                                <% } %>
+                                    </span>
+                                </span></li>
+                        </ul>
+                    </div>
+                    <div class="categorybox">
+                        <% if (i.category) { %>
+
+                            <%= i.category %>
+
+                                <%}%>
+                    </div>
+                </li>
+                <hr>
+                <% } %>
+        </ul>
+    </div>
+
+
+    <script src="/JS/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
