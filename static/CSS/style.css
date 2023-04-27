@@ -89,3 +89,11 @@ span {
 .delete {
     background-color: red;
 }
+
+.delete-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-top: 10px;
+}

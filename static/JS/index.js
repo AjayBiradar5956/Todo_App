@@ -1,17 +1,4 @@
 
-var checkboxes = document.querySelectorAll(".checkboxs");
-module.exports.checkedList = [];
-for (var checkbox of checkboxes) {
-    checkbox.addEventListener('click', function () {
-        if (this.checked == true) {
-            checkedList.push(this.value);
-            console.log(checkedList);
-        }
-    })
-}
-
-
-
 //Color the Cateogory box's according to the category
 var catbox = document.querySelectorAll(".categorybox");
 for (let i = 0; i < catbox.length; i++) {
@@ -47,4 +34,35 @@ for (let j = 0; j < date.length; j++) {
     var result = (months[now.getMonth()] + ' ' + now.getDate() + ',' + now.getFullYear());
     date[j].innerHTML = result;
 }
+
+var checkboxes = document.querySelectorAll(".checkboxs");
+var checkedList = [];
+for (var checkbox of checkboxes) {
+    checkbox.addEventListener('click', function () {
+        if (this.checked == true) {
+            checkedList.push(this.value)
+            console.log(checkedList);
+        }
+    })
+};
+
+$(document).ready(function () {
+    $('.delete').click(function () {
+        $.post("/delete-list",
+            {
+                description: checkedList,
+                success: function (data) {
+                    window.location.href = "http://localhost:8000"
+                }
+            }
+        )
+
+    });
+});
+
+
+
+
+
+
 

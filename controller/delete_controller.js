@@ -1,16 +1,15 @@
 const List = require("../models/list");
 
-// const checkedList = require("../static/JS/index");
 module.exports.delete = function (req, res) {
-    console.log("deleted");
-
-    // return res.redirect("/");
-    // const description = req.query.description
-    // Contact.findByDescriptionAndDelete(description);
-    //     .then(() => {
-    //         return res.redirect('/');
-    //     }).catch((err) => {
-    //         return console.log("error");
-    //     })
-
+    // console.log(req.body);
+    let desc = req.body.description;
+    console.log(desc);
+    List.deleteMany({ description: desc })
+        .then((List) => {
+            console.log(List);
+            return List;
+            // res.redirect('/');
+        }).catch((error) => {
+            console.log(error);
+        });
 }
