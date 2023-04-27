@@ -1,5 +1,5 @@
 const List = require("../models/list");
-console.log("home controller called");
+
 module.exports.home = function (req, res) {
     List.find({})
         .then((List) => {

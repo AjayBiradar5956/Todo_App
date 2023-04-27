@@ -9,7 +9,6 @@ module.exports.create = function (req, res) {
     }).then((List) => {
         return res.redirect('/');
     }).catch((error) => {
-        console.log(`${error} in creating the db`);
-        return;
+        return console.log(`${error} in creating the db`);
     })
 }   

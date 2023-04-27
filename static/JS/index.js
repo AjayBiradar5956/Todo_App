@@ -12,10 +12,10 @@ for (let i = 0; i < catbox.length; i++) {
         catbox[i].style.backgroundColor = "Purple";
     }
     else if (catbox[i].innerHTML.includes("Cleaning")) {
-        catbox[i].style.backgroundColor = "violet";
+        catbox[i].style.backgroundColor = "green";
     }
     else if (catbox[i].innerHTML.includes("Others")) {
-        catbox[i].style.backgroundColor = "green";
+        catbox[i].style.backgroundColor = "red";
     }
 }
 
@@ -35,6 +35,7 @@ for (let j = 0; j < date.length; j++) {
     date[j].innerHTML = result;
 }
 
+//To handle Delete Operation
 var checkboxes = document.querySelectorAll(".checkboxs");
 var checkedList = [];
 for (var checkbox of checkboxes) {
@@ -45,7 +46,6 @@ for (var checkbox of checkboxes) {
         }
     })
 };
-
 $(document).ready(function () {
     $('.delete').click(function () {
         $.post("/delete-list",
@@ -56,7 +56,6 @@ $(document).ready(function () {
                 }
             }
         )
-
     });
 });
 
